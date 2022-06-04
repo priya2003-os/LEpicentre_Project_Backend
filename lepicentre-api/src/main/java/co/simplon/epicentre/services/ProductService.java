@@ -11,9 +11,9 @@ public interface ProductService {
 
     Optional<Product> findById(Long id);
 
-    List<Product> findNames();
+    //List<Product> findNames();
 
-    List<Product> findProductByCountryId(int countryId, int categoryId);
+   List<Product> findProductByCountryId(Long country_id, Long category_id);
 
     /*
      * 

@@ -13,7 +13,6 @@ import co.simplon.epicentre.repositories.ProductRepository;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
-    private List<Product>[] product;
 
     public ProductServiceImpl(ProductRepository repository) {
 	this.repository = repository;
@@ -38,22 +37,22 @@ public class ProductServiceImpl implements ProductService {
 	return repository.findAll();
     }
 
-    @Override
+   /* @Override
     public List<Product> findNames() {
 	// TODO Auto-generated method stub
 	return null;
-    }
+    }*/
 
     @Override
-    public List<Product> findProductByCountryId(int countryId, int categoryId) {
+    public List<Product> findProductByCountryId(Long country_id, Long category_id) {
 	// TODO Auto-generated method stub
 
-	List<Product> list1 = repository.findProductByCountryId(countryId, categoryId);
+	List<Product> products = repository.findProductByCountryIdAndCategoryId(country_id, category_id);
 
 	List<Product> finalList = new ArrayList<>();
 
-	for (List<Product> list1 : product) {
-	    if (product.getCategory() = categoryId) {
+	for (Product product : products) {
+	    if (product.getCategory().getId() == category_id) {
 		finalList.add(product);
 	    }
 	}
