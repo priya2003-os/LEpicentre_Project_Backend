@@ -11,7 +11,7 @@ import co.simplon.epicentre.entities.Product;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 //    <T> List<T> findAllProjectedByOrderByName(Class<T> type);
 
-    @Override
+
     List<Product> findAll();
 
    // List<Product> findProductListByCountryId(Country country_id, Category category_id);
