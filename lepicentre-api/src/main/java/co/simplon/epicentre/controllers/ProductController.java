@@ -3,6 +3,7 @@ package co.simplon.epicentre.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import co.simplon.epicentre.dtos.ProductCreateDto;
 import co.simplon.epicentre.entities.Category;
 import co.simplon.epicentre.entities.Country;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +48,7 @@ public class ProductController {
 
     @PostMapping("/update")
     public void updateProduct(@RequestBody ProductCreateDto inputs) {
-        System.out.println((inputs));
+        System.out.println(inputs);
         service.updateProduct(inputs);
     }
 

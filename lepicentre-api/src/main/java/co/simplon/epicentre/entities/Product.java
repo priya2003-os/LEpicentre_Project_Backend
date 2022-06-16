@@ -1,5 +1,7 @@
 package co.simplon.epicentre.entities;
 
+import co.simplon.epicentre.dtos.ProductCreateDto;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -100,7 +102,7 @@ public class Product {
 	return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(ProductCreateDto category) {
 	this.category = category;
     }
 

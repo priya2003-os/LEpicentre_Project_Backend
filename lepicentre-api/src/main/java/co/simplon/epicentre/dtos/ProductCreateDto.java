@@ -84,4 +84,20 @@ public class ProductCreateDto {
     public void setBrand(Brand brand) {
         this.brand = brand;
     }
+
+    @Override
+    public String toString() {
+        return "ProductCreateDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", picture='" + picture + '\'' +
+                ", price='" + price + '\'' +
+                ", country=" + country +
+                ", category=" + category +
+                ", brand=" + brand +
+                '}';
+    }
 }
+
+

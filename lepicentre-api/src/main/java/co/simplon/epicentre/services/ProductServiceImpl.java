@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import co.simplon.epicentre.entities.Product;
 import co.simplon.epicentre.repositories.ProductRepository;
 
+import javax.transaction.Transactional;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -27,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
 //    }
 
     @Override
-    public Optional<Product> findById(Long id) {
+    public Product findById(Long id) {
 
 	return repository.findById(id);
     }
@@ -68,6 +70,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Transactional
+    @Override
     public void updateProduct(ProductCreateDto inputs) {
         Product product = repository.findById(inputs.getId()).get();
 
@@ -75,7 +78,14 @@ public class ProductServiceImpl implements ProductService {
         product.setDescription(inputs.getDescription());
         product.setPicture((inputs.getPicture()));
         product.setPrice(inputs.getPrice());
-        product.setCountry(inputs.getCountry(Long id));
+        product.setCountry(inputs.getCountry());
+        product.setCategory(inputs.getCategory());
+        product.setBrand(inputs.getBrand());
 
+    }
+
+    public void deleteProduct(ProductCreateDto inputs) {
+        Product product = repository.findById(inputs.getId()).get();
+        repository.delete(product);
     }
 }

@@ -1,6 +1,7 @@
 package co.simplon.epicentre.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findAll();
 
-   // List<Product> findProductListByCountryId(Country country_id, Category category_id);
+   @Override
+   Optional<Product> findById(Long id);
 
 
 
